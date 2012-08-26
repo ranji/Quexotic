@@ -1,21 +1,21 @@
 var readline = require('readline');
+var Queue = require('../lib/queue');
 
-var Queue = require('./queue');
 var queue = new Queue();
 
-queue.on('enqueue',function(item){
-	var statusMessage = 'adding to queue: ' + item
+queue.on('enqueue', function (item) {
+	var statusMessage = 'adding to queue: ' + item;
 	console.log(statusMessage);
 })
 
-queue.on('dequeue',function(item){
-	var statusMessage = 'read from queue: ' + item
+queue.on('dequeue', function (item) {
+	var statusMessage = 'read from queue: ' + item;
 	console.log(statusMessage);
 })
 
-queue.on('polling',function(length){
+queue.on('polling', function (length) {
 	if (length>0){
-		var statusMessage = 'items in queue: ' + length
+		var statusMessage = 'items in queue: ' + length;
 		console.log(statusMessage);
 	}
 })
@@ -27,7 +27,7 @@ rl = readline.createInterface(process.stdin, process.stdout);
 rl.setPrompt('ENTER MESSAGE> ');
 rl.prompt();
 
-rl.on('line', function(line) {
+rl.on('line', function (line) {
 	switch(line.trim()) {
 		default:
 			//raise and event to send message to sqs  
@@ -35,7 +35,7 @@ rl.on('line', function(line) {
 			break;
   }
 	rl.prompt();
-}).on('close', function() {
+}).on('close', function () {
   console.log('Have a great day!');
   process.exit(0);
 });
