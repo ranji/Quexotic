@@ -1,11 +1,15 @@
 var readline = require('readline');
 var Queue = require('../lib/queue');
 var simpleStringHandler = require('./simpleStringHandler');
+var anotherHandler = require('./another_string_handler');
+var Message = require('../lib/message'); 
 
+var message = new Message();
+message.message_type = "string";
 var queue = new Queue();
 
 queue.on('enqueue', function(message) {
-	var statusMessage = 'adding to queue: ' + message;
+	var statusMessage = 'adding to queue: ' + message.body;
 	console.log(statusMessage);
 });
 /*
@@ -16,6 +20,7 @@ queue.on('dequeue', function(message) {
 */
 
 queue.addMessageHandler(simpleStringHandler);
+queue.addMessageHandler(anotherHandler);
 
 queue.on('polling', function(length) {
 	if (length > 0) {
@@ -35,7 +40,8 @@ rl.on('line', function(line) {
 	switch (line.trim()) {
 	default:
 		//raise and event to send message to sqs  
-		queue.enqueue(line);
+		message.body = line;
+		queue.enqueue(message);
 		break;
 	}
 	rl.prompt();
