@@ -1,0 +1,31 @@
+{
+  "name": "queue lib",
+  "preferGlobal": "true",
+  "version": "0.0.1",
+  "author": "ranji <ranjit.thayyil@gmail.com>",
+  "description": "a simple SQS library",
+  "contributors": [ 
+    {
+      "name": "ranji",
+      "email": "ranjit.thayyil@gmail.com"
+    } 
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ranji/quexotic.git"
+  },
+  "keywords": [
+    "sqs",
+    "queue",
+    "amazon"
+  ],
+  "analyze": false,
+  "devDependencies": {
+    "mocha"    :  "*",
+  },
+  "bundleDependencies": [],  
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.6"
+  }
+}
