@@ -24,7 +24,7 @@ queue.on('polling', function(length) {
 });
 
 queue.startPolling(1000,function(err,data){
-	console.log(data);
+	//console.log(data);
 });
 
 
